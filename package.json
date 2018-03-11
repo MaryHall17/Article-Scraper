@@ -1,0 +1,32 @@
+{
+  "name": "article-scraper",
+  "version": "1.0.0",
+  "description": "App that scrapes articles with cheerio and allows you to make and delete notes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "Hello"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaryHall17/Article-Scraper.git"
+  },
+  "keywords": [
+    "article",
+    "scraper"
+  ],
+  "author": "Mary Hall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaryHall17/Article-Scraper/issues"
+  },
+  "homepage": "https://github.com/MaryHall17/Article-Scraper#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.0.9",
+    "npm": "^5.7.1",
+    "request": "^2.83.0"
+  }
+}
