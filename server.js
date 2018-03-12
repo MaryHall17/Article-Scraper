@@ -8,6 +8,7 @@ var cheerio = require("cheerio");
 var app = express();
 
 var db = require("./models");
+console.log(db);
 
 var PORT = process.env.PORT || 8080; 
 
@@ -17,11 +18,18 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
+require("./routes/api.js")(app);
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Headlines";
+//Heroku logic to perfect:
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Headlines";
+
+// mongoose.Promise = Promise;
+// mongoose.connect(MONGODB_URI, {
+// 	useMongoClient: true
+// });
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
+mongoose.connect("mongodb://localhost/Headlines", {
 	// useMongoClient: true
 });
 
