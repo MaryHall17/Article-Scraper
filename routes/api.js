@@ -17,8 +17,16 @@ module.exports = function (app) {
 
 	});
 
-	// app.get("/articles", function(req, res) {
+	app.get("/headlines", function(req, res) {
+
+		db.Headline.find({})
+			.then(function(dbHeadline) {
+				res.json(dbHeadline);
+			})
+				.catch(function(err) {
+					res.json(err);
+				});
 		
-	// })
+	});
 
 };
