@@ -18,8 +18,13 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
+
 var fetch = require("./controllers/fetch.js")
-var note = require("./controllers/notes.js")
+var note = require("./controllers/note.js")
 
 app.use("/", fetch)
 app.use("/", note)
