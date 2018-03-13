@@ -18,7 +18,12 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static("public"));
 
-require("./routes/api.js")(app);
+var fetch = require("./controllers/fetch.js")
+var note = require("./controllers/notes.js")
+
+app.use("/", fetch)
+app.use("/", note)
+
 
 //Heroku logic to perfect:
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Headlines";
