@@ -10,7 +10,7 @@ console.log("Routes: " + db);
 	router.get("/scrape", function(req, res) {
 		db.Headline.create(scrape.result)
 			.then(function(dbHeadline) {
-				console.log(dbArticle);
+				console.log(dbHeadline);
 			})
 			.catch(function(err) {
 				return res.json(err);
@@ -24,7 +24,8 @@ console.log("Routes: " + db);
 
 		db.Headline.find({})
 			.then(function(dbHeadline) {
-				res.json(dbHeadline);
+				// res.json(dbHeadline);
+				res.render("home", {headline: dbHeadline});
 			})
 				.catch(function(err) {
 					res.json(err);

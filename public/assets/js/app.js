@@ -1,8 +1,14 @@
-$.getJSON("/headlines", function(data) {
+$(document).ready(function() {
+	$.getJSON("/headlines", function(data) {
 	for (var i = 0; i < data.length; i++) {
-		$("#headlines").append("<p data-id='" + data[i].id + "'>" + data[i].title + "<br/>" + data[i].link + "</p>");
-	}
+		$("#headlines").append("<p data-id='" + data[i].id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+		}
+	});
+	console.log("ready");
+
 });
+
+
 
 // $(document).on("click", "p", function() {
 // 	$("#notes").empty();
