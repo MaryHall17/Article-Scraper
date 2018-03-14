@@ -1,3 +1,8 @@
 <div>
-	<p>Test:{{{headline}}}</p>
+{{!-- 	<p>Test:{{{headline}}}</p> --}}
+	{{#each headline}}
+		<li>{{this.title}}</li>
+		<li>{{this.link}}</li>
+	{{/each}}
+
 </div>
