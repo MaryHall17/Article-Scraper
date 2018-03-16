@@ -4,9 +4,9 @@ var db = require("../models/index.js");
 // console.log("scrape " + db);
 // console.log(db);
 
-var headlines = []; 
+// var headlines = {}; 
 
-var Scrape = function(){axios.get("https://nytimes.com").then(function(response){
+var Scrape = axios.get("https://nytimes.com").then(function(response){
 
 	var $ = cheerio.load(response.data);
 
@@ -14,12 +14,12 @@ var Scrape = function(){axios.get("https://nytimes.com").then(function(response)
 			//Save an empty result object
 
 			//Add the text and href of each link
-			var result= {};
-			console.log($(this).text());
-
+			var result = {};
+			// console.log("this " + $(this).text());
 			result.title = $(this)
 			// .children("a")
 			.text();
+			// console.log("this " + result.title)
 			result.summary = $(this)
 			.siblings().text();
 			result.link = $(this)
@@ -27,23 +27,23 @@ var Scrape = function(){axios.get("https://nytimes.com").then(function(response)
 			.attr("href");
 			// console.log(result);
 
-			headlines.push(result);
+			// headlines.push(result);
 
-			//Create an Article using the result object
-			// db.Headline.create(result)
-			// 	.then(function(dbHeadline){
-			// 		console.log(dbHeadline);
-			// 	})
-			// 	.catch(function(err){
-			// 		return res.json(err);
-			// 	});
+			// Create an Article using the result object
+		var headlines =	db.Headline.create(result)
+				.then(function(dbHeadline){
+					// console.log("create" + dbHeadline);
+				})
+				.catch(function(err){
+					return res.json(err);
+				});
 	
 		});
 		// res.send("Scrape Complete")
-		return headlines;
+		// return headlines;
 
 	});
-};
+
 
 
 
