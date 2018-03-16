@@ -1,0 +1,16 @@
+body {
+	background-image: url("https://cdn.thepennyhoarder.com/wp-content/uploads/2017/09/15150822/newspapers.jpg");
+	background-repeat: no-repeat;
+	background-color: #cccccc;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+
+h3 {
+	text-align: center;
+}
+
+p {
+	font-weight: bold;
+}
+

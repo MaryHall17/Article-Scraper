@@ -1,12 +1,8 @@
-$(document).ready(function() {
-	$.getJSON("/headlines", function(data) {
-	for (var i = 0; i < data.length; i++) {
-		$("#headlines").append("<p data-id='" + data[i].id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-		}
-	});
-	console.log("ready");
-
-});
+$(function() {
+	$("#article").on("click", function(event) {
+		
+	})
+}
 
 
 
