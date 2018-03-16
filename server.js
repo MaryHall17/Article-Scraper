@@ -8,7 +8,7 @@ var cheerio = require("cheerio");
 var app = express();
 
 var db = require("./models");
-console.log(db);
+// console.log(db);
 
 var PORT = process.env.PORT || 8080; 
 
@@ -31,7 +31,7 @@ app.use("/", note)
 
 
 //Heroku logic to perfect:
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Headlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Headlines";
 
 // mongoose.Promise = Promise;
 // mongoose.connect(MONGODB_URI, {

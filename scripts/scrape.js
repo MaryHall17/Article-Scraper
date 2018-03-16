@@ -2,39 +2,48 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models/index.js");
 // console.log("scrape " + db);
-console.log(db);
+// console.log(db);
 
-var Scrape = axios.get("https://nytimes.com/").then(function(response){
+var headlines = []; 
+
+var Scrape = function(){axios.get("https://nytimes.com").then(function(response){
 
 	var $ = cheerio.load(response.data);
 
-	$("article h1").each(function(i, element){
-		//Save an empty result object
+		$("article h1").each(function(i, element){
+			//Save an empty result object
 
-		//Add the text and href of each link
-		var result= {};
+			//Add the text and href of each link
+			var result= {};
+			console.log($(this).text());
 
-		result.title = $(this)
-			.children("a")
+			result.title = $(this)
+			// .children("a")
 			.text();
-		result.link = $(this)
+			result.summary = $(this)
+			.siblings().text();
+			result.link = $(this)
 			.children("a")
 			.attr("href");
-			console.log(result);
+			// console.log(result);
+
+			headlines.push(result);
 
 			//Create an Article using the result object
 			// db.Headline.create(result)
 			// 	.then(function(dbHeadline){
-			// 		console.log(dbArticle);
+			// 		console.log(dbHeadline);
 			// 	})
 			// 	.catch(function(err){
 			// 		return res.json(err);
 			// 	});
+	
+		});
+		// res.send("Scrape Complete")
+		return headlines;
 
 	});
-	// res.send("Scrape Complete");
-
-});
+};
 
 
 

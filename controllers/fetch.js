@@ -1,22 +1,23 @@
 var express = require("express");
 
 var router = express.Router();
-var scrape = require("../scripts/Scrape");
+var scrape = require("../scripts/scrape.js");
 var db = require("../models/index.js");
-console.log("Routes: " + db);
+// console.log("Routes: " + db);
 
 
 
 	router.get("/scrape", function(req, res) {
-		db.Headline.create(scrape.result)
+		db.Headline.create(scrape())
 			.then(function(dbHeadline) {
-				console.log(dbHeadline);
+				console.log("scrape " + dbHeadline);
+				res.send("Scrape complete");
 			})
 			.catch(function(err) {
 				return res.json(err);
 			});
 
-		res.send("Scrape complete");
+		// res.send("Scrape complete");
 
 	});
 

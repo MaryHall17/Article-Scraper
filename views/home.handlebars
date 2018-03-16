@@ -1,8 +1,8 @@
-<div>
+<div id="headlines">
 {{!-- 	<p>Test:{{{headline}}}</p> --}}
 	{{#each headline}}
-		<li>{{this.title}}</li>
-		<li>{{this.link}}</li>
+		<li><a href={{this.link}} target="_blank">{{this.title}}</a></li>
+		<li>{{this.summary}}</li>
 	{{/each}}
 
 </div>
