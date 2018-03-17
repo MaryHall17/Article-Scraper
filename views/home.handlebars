@@ -2,9 +2,13 @@
 {{!-- 	<p>Test:{{{headline}}}</p> --}}
 	{{#each headline}}
 		<h3><a href={{this.link}} target="_blank">{{this.title}}</a></h3>
-		<p>{{this.summary}}<p>
-		<button id="article">Save this Article</button>
-		<button id="note">Add a note</button>
+		<p>{{this.summary}}</p>
+		<form>
+			<textarea id="titleinput">Note title</textarea>
+			<textarea id="bodyinput">Add a note...</textarea>
+			<button id="savenote">Add a note</button>
+		</form>
+	
 	{{/each}}
 
 </div>
